@@ -1,6 +1,7 @@
 package tests;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
@@ -17,7 +18,7 @@ public class BaseTest {
     CheckoutStepOnePage checkoutStepOnePage;
     CheckoutStepTwoPage checkoutStepTwoPage;
     CheckoutCompletePage checkoutCompletePage;
-
+    LoginPageFactory loginPageFactory;
 
     @BeforeMethod
     public void initTest() {
@@ -31,11 +32,11 @@ public class BaseTest {
         checkoutStepOnePage = new CheckoutStepOnePage(driver);
         checkoutStepTwoPage = new CheckoutStepTwoPage(driver);
         checkoutCompletePage = new CheckoutCompletePage(driver);
-
+        loginPageFactory = new LoginPageFactory(driver);
     }
-
     @AfterMethod
     public void closeDriver() {
         driver.quit();
     }
+
 }
