@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class LoginPage extends BaseTest {
+public class LoginPageTests extends BaseTest {
 
     @Test
     public void emptyFieldsLoginPageTest() {
@@ -25,13 +25,13 @@ public class LoginPage extends BaseTest {
     public void fillInOneFieldErrorMessageTest() {
         loginPage.openPage("https://www.saucedemo.com/");
         loginPage.login("standard_user", "");
-        Assert.assertEquals(loginPage.passwordErrorMessage(), "Epic sadface: Password is required");
+        Assert.assertEquals(loginPage.getPasswordErrorMessage(), "Epic sadface: Password is required");
     }
     @Test
     public void emptyFieldsLoginErrorMessageTest() {
         loginPage.openPage("https://www.saucedemo.com/");
         loginPage.login("", "secret_sauce");
-        Assert.assertEquals(loginPage.logindErrorMessage(), "Epic sadface: Username is required");
+        Assert.assertEquals(loginPage.getLoginErrorMessageText(), "Epic sadface: Username is required");
     }
 }
 

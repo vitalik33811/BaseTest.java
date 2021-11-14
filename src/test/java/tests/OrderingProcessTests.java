@@ -4,7 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.CheckoutCompletePage;
 
-public class OrderingProcess extends BaseTest {
+public class OrderingProcessTests extends BaseTest {
 
     @Test
     public void OrderWithNameOnly() {

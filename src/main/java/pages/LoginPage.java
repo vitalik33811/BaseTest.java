@@ -28,10 +28,10 @@ public class LoginPage extends BasePage {
         driver.findElement(By.id("tinymce")).sendKeys("asdsd");
         driver.switchTo().defaultContent();
     }
-    public String passwordErrorMessage() {
+    public String getPasswordErrorMessage() {
         return driver.findElement(By.xpath("//*//*[@id='login_button_container']//h3")).getText();
     }
-    public String logindErrorMessage() {
+    public String getLoginErrorMessageText() {
         return driver.findElement(By.xpath("//*[@ data-test='error']")).getText();
     }
 }
