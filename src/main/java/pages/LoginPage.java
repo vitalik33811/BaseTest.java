@@ -14,11 +14,12 @@ public class LoginPage extends BasePage {
     private static final By LOGIN_BUTTON = By.xpath("//*[@id='login-button']");
     private static final By BOT_LOGO = By.xpath("//*[@class='bot_column']");
 
-    public void login(String username, String password) {
+    public ProductsPage login(String username, String password) {
         waitForElementLocated(USERNAME_INPUT, 10);
         driver.findElement(USERNAME_INPUT).sendKeys(username);
         driver.findElement(PASSWORD_INPUT).sendKeys(password);
         driver.findElement(LOGIN_BUTTON).click();
+        return  new ProductsPage(driver);
     }
 
     public void waitForPageOpenedExample() {
@@ -37,5 +38,11 @@ public class LoginPage extends BasePage {
 
     public String errorMessageEmptyFields() {
         return driver.findElement(By.xpath("//*[@id=\"login_button_container\"]/div/form/div[3]/h3/text()")).getText();
+    }
+
+    public LoginPage openPage(){
+        openPage(BASE_URL);
+        waitForPageLoaded();
+        return this;
     }
 }

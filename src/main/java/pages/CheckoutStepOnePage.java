@@ -2,38 +2,50 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class CheckoutStepOnePage extends BasePage {
     public CheckoutStepOnePage(WebDriver driver) {
         super(driver);
     }
 
-    private static final By CHECKOUT_FIRST_NAME = By.xpath("//*[@id='first-name']");
-    private static final By CHECKOUT_LAST_NAME = By.xpath("//*[@id='last-name']");
-    private static final By CONTINUE_BUTTON = By.xpath("//*[@id='continue']");
-    private static final By ZIP_POSTAL_CODE = By.xpath("//*[@id='postal-code']");
-    private static final By ERROR_MESSAGE_CHECKOUT = By.xpath("//*[@data-test='error']");
+    @FindBy(xpath = "//*[@id='first-name']")
+    WebElement checkoutFirstName;
+    @FindBy(xpath = "//*[@id='last-name']")
+    WebElement checkoutLastName;
+    @FindBy(xpath = "//*[@id='continue']")
+    WebElement continueButton;
+    @FindBy(xpath = "//*[@id='postal-code']")
+    WebElement fieldZipPostalCode;
+    @FindBy(xpath = "//*[@data-test='error']")
+    WebElement errorMessageCheckout;
 
-    public void setCheckoutFirstName(String name) {
-        driver.findElement(CHECKOUT_FIRST_NAME).sendKeys(name);
+    public CheckoutStepOnePage setCheckoutFirstName(String name) {
+        checkoutFirstName.sendKeys(name);
+        return this;
     }
 
-    public void setContinueButton() {
-        driver.findElement(CONTINUE_BUTTON).click();
+    public CheckoutStepTwoPage setContinueButton() {
+        continueButton.click();
+        return new CheckoutStepTwoPage(driver);
     }
 
     public String setErrorMessageCheckoutLastName() {
-        return driver.findElement(ERROR_MESSAGE_CHECKOUT).getText();
+        return errorMessageCheckout.getText();
     }
 
-    public void setCheckoutLastName(String lastName) {
-        driver.findElement(CHECKOUT_LAST_NAME).sendKeys(lastName);
+    public CheckoutStepOnePage setCheckoutLastName(String lastName) {
+        checkoutLastName.sendKeys(lastName);
+        return this;
     }
 
     public String setErrorMessageCheckoutFirstName() {
-        return driver.findElement(ERROR_MESSAGE_CHECKOUT).getText();
+        return errorMessageCheckout.getText();
     }
-    public void setZipPostalCode(String zipPostalCode){
-        driver.findElement(ZIP_POSTAL_CODE).sendKeys(zipPostalCode);
+
+    public CheckoutStepOnePage setZipPostalCode(String zipPostalCode) {
+        fieldZipPostalCode.sendKeys(zipPostalCode);
+        return this;
     }
 }

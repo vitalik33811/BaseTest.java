@@ -8,33 +8,33 @@ public class LoginPage extends BaseTest {
 
     @Test
     public void emptyFieldsLoginPageTest() {
-        loginPage.openPage("https://www.saucedemo.com/");
-        loginPage.login("", "");
+        loginPage.openPage()
+        .login("", "");
     }
 
     @Test
     public void fillInOneFieldTest() {
-        loginPage.openPage("https://www.saucedemo.com/");
-        loginPage.login("standard_user", "");
+        loginPage.openPage()
+        .login("standard_user", "");
     }
 
     @Test
     public void fillInTheFieldsTest() {
-        loginPage.openPage("https://www.saucedemo.com/");
-        loginPage.login("standard_user", "secret_sauce");
+        loginPage.openPage()
+        .login("standard_user", "secret_sauce");
     }
 
     @Test
     public void fillInOneFieldErrorMessageTest() {
-        loginPage.openPage("https://www.saucedemo.com/");
-        loginPage.login("standard_user", "");
+        loginPage.openPage()
+        .login("standard_user", "");
         Assert.assertEquals(loginPage.errorMessagePassword(), "Epic sadface: Password is required");
     }
 
     @Test
     public void emptyFieldsLoginErrorMessageTest() {
-        loginPage.openPage("https://www.saucedemo.com/");
-        loginPage.login("", "secret_sauce");
+        loginPage.openPage()
+        .login("", "secret_sauce");
         Assert.assertEquals(loginPage.errorMessagePassword(), "Epic sadface: Username is required");
     }
 }

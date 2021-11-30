@@ -17,7 +17,7 @@ public class BaseTest {
     CheckoutStepOnePage checkoutStepOnePage;
     CheckoutStepTwoPage checkoutStepTwoPage;
     CheckoutCompletePage checkoutCompletePage;
-
+    LoginPageFactory loginPageFactory;
 
     @BeforeMethod
     public void initTest() {
@@ -31,9 +31,9 @@ public class BaseTest {
         checkoutStepOnePage = new CheckoutStepOnePage(driver);
         checkoutStepTwoPage = new CheckoutStepTwoPage(driver);
         checkoutCompletePage = new CheckoutCompletePage(driver);
+        loginPageFactory = new LoginPageFactory(driver);
 
     }
-
     @AfterMethod
     public void closeDriver() {
         driver.quit();
