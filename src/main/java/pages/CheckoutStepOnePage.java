@@ -1,6 +1,5 @@
 package pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -26,7 +25,7 @@ public class CheckoutStepOnePage extends BasePage {
         return this;
     }
 
-    public CheckoutStepTwoPage setContinueButton() {
+    public CheckoutStepTwoPage clickContinueButton() {
         continueButton.click();
         return new CheckoutStepTwoPage(driver);
     }
@@ -40,7 +39,7 @@ public class CheckoutStepOnePage extends BasePage {
         return this;
     }
 
-    public String setErrorMessageCheckoutFirstName() {
+    public String getErrorMessageText() {
         return errorMessageCheckout.getText();
     }
 

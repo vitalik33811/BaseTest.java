@@ -32,8 +32,8 @@ public class BaseTest {
         checkoutStepTwoPage = new CheckoutStepTwoPage(driver);
         checkoutCompletePage = new CheckoutCompletePage(driver);
         loginPageFactory = new LoginPageFactory(driver);
-
     }
+
     @AfterMethod
     public void closeDriver() {
         driver.quit();

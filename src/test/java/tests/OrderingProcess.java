@@ -10,10 +10,10 @@ public class OrderingProcess extends BaseTest {
         loginPage.openPage()
         .login("standard_user", "secret_sauce")
         .addProductToCart("Sauce Labs Bike Light")
-        .setCartPage()
-        .setCheckoutButton()
+        .clickShoppingCartLink()
+        .clickCheckoutButton()
         .setCheckoutFirstName("Vitaliy")
-        .setContinueButton();
+        .clickContinueButton();
         Assert.assertEquals(checkoutStepOnePage.setErrorMessageCheckoutLastName(), "Error: Last Name is required");
     }
 
@@ -22,13 +22,13 @@ public class OrderingProcess extends BaseTest {
         loginPage.openPage()
         .login("standard_user", "secret_sauce")
         .addProductToCart("Sauce Labs Bike Light")
-        .setCartPage()
-        .setCheckoutButton()
+        .clickShoppingCartLink()
+        .clickCheckoutButton()
         .setCheckoutFirstName("Vitaliy")
         .setCheckoutLastName("Vasilevich")
         .setZipPostalCode("12345")
-        .setContinueButton()
-        .setCheckout2FinishButton();
-        Assert.assertEquals(checkoutCompletePage.setCheckoutCompleteTitle(), "CHECKOUT: COMPLETE!");
+        .clickContinueButton()
+        .clickCheckoutFinishButton();
+        Assert.assertEquals(checkoutCompletePage.getCheckoutCompleteTitleText(), "CHECKOUT: COMPLETE!");
     }
 }

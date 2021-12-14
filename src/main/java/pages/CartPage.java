@@ -19,7 +19,7 @@ public class CartPage extends BasePage {
         return driver.findElement(By.xpath(String.format(PRODUCT_PRICE, productName))).getText();
     }
 
-    public CheckoutStepOnePage setCheckoutButton() {
+    public CheckoutStepOnePage clickCheckoutButton() {
         checkoutButton.click();
         return new CheckoutStepOnePage(driver);
     }
