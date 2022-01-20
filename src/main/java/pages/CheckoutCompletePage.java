@@ -1,8 +1,7 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 
 public class CheckoutCompletePage extends BasePage{
     public CheckoutCompletePage(WebDriver driver) {
@@ -12,6 +11,6 @@ public class CheckoutCompletePage extends BasePage{
     WebElement checkoutCompleteTitle;
 
     public String getCheckoutCompleteTitleText(){
-       return checkoutCompleteTitle.getText();
+       return driver.findElement(CHECKOUT_COMPLETE_TITLE).getText();
     }
 }

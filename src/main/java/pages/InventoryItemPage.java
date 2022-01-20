@@ -1,19 +1,16 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 
-public class InventoryItemPage extends BasePage {
+public class InventoryItemPage extends BasePage{
+
     public InventoryItemPage(WebDriver driver) {
         super(driver);
     }
+    private static final By CART_PAGE = By.xpath("//*[@class='shopping_cart_link']");
 
-    @FindBy(xpath = "//*[@class='shopping_cart_link']")
-    WebElement shoppingCartLink;
-
-    public CartPage clickShoppingCartLink() {
-        shoppingCartLink.click();
-        return new CartPage(driver);
+    public void setCartPage() {
+        driver.findElement(CART_PAGE).click();
     }
 }
