@@ -19,8 +19,10 @@ public class BasePage {
     }
 
     public void openPage(String url) {
+
         driver.get(url);
     }
+
     public void waitForElementLocated(By element, int timeout) {
         wait = new WebDriverWait(driver, timeout);
         wait.until(ExpectedConditions.visibilityOfElementLocated(element));
@@ -33,7 +35,6 @@ public class BasePage {
 
     public void waitForPageLoaded() {
         new ExpectedCondition<Boolean>() {
-
             public Boolean apply(WebDriver driver) {
                 return ((JavascriptExecutor) driver).executeScript("return document.readyState").toString().equals("complete");
             }

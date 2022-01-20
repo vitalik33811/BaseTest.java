@@ -2,15 +2,20 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
-public class CheckoutStepTwoPage extends BasePage{
-
+public class CheckoutStepTwoPage extends BasePage {
     public CheckoutStepTwoPage(WebDriver driver) {
         super(driver);
     }
-    private static final By CHECKOUT_FINISH_BUTTON = By.xpath("//*[@id='finish']");
 
-    public void clickCheckoutFinishButton(){
-        driver.findElement(CHECKOUT_FINISH_BUTTON).click();
+    @FindBy(xpath = "//*[@id='finish']")
+    WebElement checkoutButton;
+
+
+    public CheckoutCompletePage clickCheckoutFinishButton() {
+        checkoutButton.click();
+        return new CheckoutCompletePage(driver);
     }
 }
